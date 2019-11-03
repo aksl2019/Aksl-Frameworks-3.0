@@ -11,12 +11,8 @@ namespace Contoso.Domain.Repository
 {
     public interface IOrderRepository 
     {
-        //Task<IEnumerable<Order>> DataflowBulkInsertOrdersAsync(IEnumerable<Order> orders);
+       ValueTask<IEnumerable<Order>> InsertOrdersAsync(IEnumerable<Order> orders);
 
-        //Task<IEnumerable<Order>> DataflowPipeBulkInsertOrdersAsync(IEnumerable<Order> orders);
-
-        //Task<IEnumerable<Order>> PipeBulkInsertOrdersAsync(IEnumerable<Order> orders);
-
-        Task<IPagedList<Order>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+        ValueTask<IPagedList<Order>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
     }
 }

@@ -10,18 +10,15 @@ using Microsoft.Extensions.Logging;
 
 using AutoMapper;
 
-using Aksl.BulkInsert;
-using Aksl.BulkInsert.Configuration;
 using Aksl.Concurrency;
-using Aksl.Pipeline;
 
 using Contoso.Domain.Models;
+using Contoso.Domain.Repository;
 using Contoso.Infrastructure.Data.Configuration;
 using Contoso.Infrastructure.Data.Context;
 using Contoso.Infrastructure.Data.Repository;
 using Contoso.DataSource.Configuration;
 using Contoso.DataSource;
-using Contoso.Domain.Repository;
 using Contoso.DataSource.Dtos;
 using Contoso.DataSource.SqlServer;
 
@@ -77,15 +74,15 @@ namespace Contoso.ConsoleApp
 
                 this.Configuration = ConfigurationBuilder.Build();
 
-                Services.Configure<PipeSettings>((pipeSettings) =>
-                {
-                    this.Configuration.Bind("Pipe", pipeSettings);
-                });
+                //Services.Configure<PipeSettings>((pipeSettings) =>
+                //{
+                //    this.Configuration.Bind("Pipe", pipeSettings);
+                //});
 
-                Services.Configure<BlockSettings>((blockSettings) =>
-                {
-                    this.Configuration.Bind("Block", blockSettings);
-                });
+                //Services.Configure<BlockSettings>((blockSettings) =>
+                //{
+                //    this.Configuration.Bind("Block", blockSettings);
+                //});
 
                 Services.Configure<DataProviderSettings>((dataProviderSettings) =>
                 {
@@ -140,9 +137,9 @@ namespace Contoso.ConsoleApp
 
                 Services.AddScoped<IDbContextFactory<ContosoContext>, DbContextFactory>();
 
-                Services.AddScoped(typeof(IDataflowBulkInserter<,>), typeof(DataflowBulkInserter<,>));
-                Services.AddScoped(typeof(IDataflowPipeBulkInserter<,>), typeof(DataflowPipeBulkInserter<,>));
-                Services.AddScoped(typeof(IPipeBulkInserter<,>), typeof(PipeBulkInserter<,>));
+                //Services.AddScoped(typeof(IDataflowBulkInserter<,>), typeof(DataflowBulkInserter<,>));
+                //Services.AddScoped(typeof(IDataflowPipeBulkInserter<,>), typeof(DataflowPipeBulkInserter<,>));
+                //Services.AddScoped(typeof(IPipeBulkInserter<,>), typeof(PipeBulkInserter<,>));
                 //Services.AddScoped<IDataflowBulkInserter<Order, Order>, DataflowBulkInserter<Order, Order>>();
                 // Services.AddScoped<IDataflowPipeBulkInserter<Order, Order>, DataflowPipeBulkInserter<Order, Order>>();
                 // Services.AddScoped<IPipeBulkInserter<Order, Order>, PipeBulkInserter<Order, Order>>();
@@ -172,9 +169,9 @@ namespace Contoso.ConsoleApp
                 var repositoryFactory = this.ServiceProvider.GetRequiredService<IDbContextFactory<ContosoContext>>();
                 var dbContext = repositoryFactory.CreateDbContext();
 
-                var dataflowBulkInserter = this.ServiceProvider.GetRequiredService<IDataflowBulkInserter<OrderDto, OrderDto>>();
-                var dataflowPipeBulkInserter = this.ServiceProvider.GetRequiredService<IDataflowPipeBulkInserter<OrderDto, OrderDto>>();
-                var pipeBulkInserter = this.ServiceProvider.GetRequiredService<IPipeBulkInserter<OrderDto, OrderDto>>();
+                //var dataflowBulkInserter = this.ServiceProvider.GetRequiredService<IDataflowBulkInserter<OrderDto, OrderDto>>();
+                //var dataflowPipeBulkInserter = this.ServiceProvider.GetRequiredService<IDataflowPipeBulkInserter<OrderDto, OrderDto>>();
+                //var pipeBulkInserter = this.ServiceProvider.GetRequiredService<IPipeBulkInserter<OrderDto, OrderDto>>();
 
                 var mapper = this.ServiceProvider.GetRequiredService<IMapper>();
 

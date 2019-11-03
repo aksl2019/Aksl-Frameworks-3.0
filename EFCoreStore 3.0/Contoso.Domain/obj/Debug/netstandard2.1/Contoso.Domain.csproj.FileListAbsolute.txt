@@ -20,3 +20,5 @@ C:\Aksl Frameworks 3.0\EFCoreStore 3.0\Contoso.Domain\obj\Debug\netstandard2.1\C
 C:\Aksl Frameworks 3.0\EFCoreStore 3.0\Contoso.Domain\obj\Debug\netstandard2.1\Contoso.Domain.AssemblyInfoInputs.cache
 C:\Aksl Frameworks 3.0\EFCoreStore 3.0\Contoso.Domain\obj\Debug\netstandard2.1\Contoso.Domain.AssemblyInfo.cs
 C:\Aksl Frameworks 3.0\EFCoreStore 3.0\Contoso.Domain\obj\Debug\netstandard2.1\Contoso.Domain.csproj.CopyComplete
+C:\Aksl Frameworks 3.0\EFCoreStore 3.0\Contoso.Domain\obj\Debug\netstandard2.1\EFCoreSqlServerNetTopologySuite.cs
+C:\Aksl Frameworks 3.0\EFCoreStore 3.0\Contoso.Domain\obj\Debug\netstandard2.1\EFCoreSqliteNetTopologySuite.cs

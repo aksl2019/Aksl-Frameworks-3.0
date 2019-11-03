@@ -26,7 +26,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Aksl.Concurrency\Aksl.Concurrency\Aksl.Concurrency.csproj" />
+    <ProjectReference Include="..\..\..\Aksl 3.0\Aksl.Concurrency\Aksl.Concurrency\Aksl.Concurrency.csproj" />
     <ProjectReference Include="..\Contoso.DataSource.SqlServer\Contoso.DataSource.SqlServer.csproj" />
     <ProjectReference Include="..\Contoso.DataSource\Contoso.DataSource.csproj" />
     <ProjectReference Include="..\Contoso.Domain\Contoso.Domain.csproj" />
@@ -37,6 +37,11 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="DataflowPipe\" />
+    <Folder Include="Pipe\" />
   </ItemGroup>
 
 </Project>

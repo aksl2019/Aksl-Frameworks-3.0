@@ -21,10 +21,37 @@ namespace Contoso.Infrastructure.Data.Context
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<SaleOrder> SaleOrders { get; set; }
+
+        public DbSet<Distributor> Distributors { get; set; }
+
+        public DbSet<Instructor> Instructors { get; set; }
+
+        public DbSet<Address> Addresses{ get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<FullTimeEmployee> FullTimeEmployees { get; set; }
+
+        public DbSet<HourlyEmployee> HourlyEmployees { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new OrderMap());
-            modelBuilder.ApplyConfiguration(new OrderItemMap());
+            modelBuilder.ApplyConfiguration(new DetailedOrderMap());
+
+            modelBuilder.ApplyConfiguration(new DistributorMap());
+
+            modelBuilder.ApplyConfiguration(new SaleOrderMap());
+            modelBuilder.ApplyConfiguration(new SaleOrderItemMap());
+
+            modelBuilder.ApplyConfiguration(new InstructorMap());
+
+            modelBuilder.ApplyConfiguration(new AddressMap());
+
+            modelBuilder.ApplyConfiguration(new EmployeeMap());
+            //modelBuilder.ApplyConfiguration(new FullTimeEmployeeMap());
+            //modelBuilder.ApplyConfiguration(new HourlyEmployeeMap());
 
             base.OnModelCreating(modelBuilder);
         }

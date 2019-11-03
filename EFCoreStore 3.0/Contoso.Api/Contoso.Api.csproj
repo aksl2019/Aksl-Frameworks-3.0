@@ -3,11 +3,35 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20191030073241_init.cs" />
+    <Compile Remove="Migrations\20191030073241_init.Designer.cs" />
+    <Compile Remove="Migrations\20191030073712_init.cs" />
+    <Compile Remove="Migrations\20191030073712_init.Designer.cs" />
+    <Compile Remove="Migrations\20191030081314_init.cs" />
+    <Compile Remove="Migrations\20191030081314_init.Designer.cs" />
+    <Compile Remove="Migrations\20191030083716_init.cs" />
+    <Compile Remove="Migrations\20191030083716_init.Designer.cs" />
+    <Compile Remove="Migrations\20191030085823_init.cs" />
+    <Compile Remove="Migrations\20191030085823_init.Designer.cs" />
+    <Compile Remove="Migrations\20191030090628_init.cs" />
+    <Compile Remove="Migrations\20191030090628_init.Designer.cs" />
+    <Compile Remove="Migrations\20191030090805_init.cs" />
+    <Compile Remove="Migrations\20191030090805_init.Designer.cs" />
+    <Compile Remove="Migrations\20191101122151_init.cs" />
+    <Compile Remove="Migrations\20191101122151_init.Designer.cs" />
+    <Compile Remove="Migrations\20191101133547_init.cs" />
+    <Compile Remove="Migrations\20191101133547_init.Designer.cs" />
+    <Compile Remove="Migrations\20191102165859_init.cs" />
+    <Compile Remove="Migrations\20191102165859_init.Designer.cs" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.NetTopologySuite" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.0.0" />
@@ -16,10 +40,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="NetTopologySuite" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

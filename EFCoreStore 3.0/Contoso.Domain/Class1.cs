@@ -2,7 +2,7 @@
 
 namespace Contoso.Domain
 {
-    public class Class1
+    public class _StreetAddress
     {
     }
 }

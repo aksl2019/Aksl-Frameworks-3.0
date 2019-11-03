@@ -11,7 +11,6 @@ using Microsoft.Extensions.Logging;
 
 using Aksl.Data;
 using Aksl.Concurrency;
-using Aksl.BulkInsert;
 
 using Contoso.DataSource.Dtos;
 using Contoso.DataSource;

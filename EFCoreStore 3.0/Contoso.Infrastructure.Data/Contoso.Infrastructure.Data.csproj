@@ -9,4 +9,8 @@
     <ProjectReference Include="..\Contoso.Domain\Contoso.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappings\Sale\" />
+  </ItemGroup>
+
 </Project>

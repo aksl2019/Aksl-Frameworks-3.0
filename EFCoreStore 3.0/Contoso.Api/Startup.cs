@@ -45,10 +45,14 @@ namespace Contoso.Api
                 //dbContextOptionsBuilder.UseSqlite(sqliteConnectionString, b => b.MigrationsAssembly("Contoso.Api"));
 
                 string sqlServerConnectionString = Configuration.GetConnectionString("ContosoSqlServer");
-                dbContextOptionsBuilder.UseSqlServer(sqlServerConnectionString);
+                dbContextOptionsBuilder.UseSqlServer(sqlServerConnectionString, sqlServerDbContextOptionsBuilder => sqlServerDbContextOptionsBuilder.UseNetTopologySuite());
 
                 // 将EF迁移文件生成到当前应用程序的程序集下
                 dbContextOptionsBuilder.UseSqlServer(sqlServerConnectionString, b => b.MigrationsAssembly("Contoso.Api"));
+
+                //Coordinate:坐标 longitude:经度  latitude:纬度  Geometry:几何形状
+                var geometryFactory = NetTopologySuite.NtsGeometryServices.Instance.CreateGeometryFactory(srid: 4326);
+                var currentLocation = geometryFactory.CreatePoint(new NetTopologySuite.Geometries.Coordinate(   -122.121512, 47.6739882));// X :经度， Y :纬度
             });
 
             services.AddControllers();
