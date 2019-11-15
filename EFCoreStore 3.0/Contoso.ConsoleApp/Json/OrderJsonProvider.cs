@@ -21,9 +21,11 @@ namespace Contoso.ConsoleApp
 
         private static string[] ProductePrix = { "Blue", "Red", "Green", "White", "Orange" };
 
-        private static readonly string[] OrderStates = { "Pending", "Processed", "Shipped" };
+        private static readonly string[] OrderStatus = { "Pending", "Processed", "Shipped" };
 
         private static readonly string[] Customers = { "Alice", "Bill", "Cortana", "Smith", "Jack" };
+
+        private static string[] Cities = { "London", "New York", "Denver", "Los Angeles", "Chicago" };
 
         static OrderJsonProvider()
         {
@@ -31,7 +33,7 @@ namespace Contoso.ConsoleApp
             var seed = 0;
 
             //1亿
-            _orderIds = (from i in Enumerable.Range(seed + 1, seed + 2 * 50000000)
+            _orderIds = (from i in Enumerable.Range(seed + 1, seed + 2 * 5000)
                          select i).ToList();
 
             _productIds = (from i in Enumerable.Range(seed + 1000, seed + 2000)
@@ -45,26 +47,29 @@ namespace Contoso.ConsoleApp
             return Task.CompletedTask;
         }
 
-        public static IEnumerable<OrderDto> CreateOrders(int start = 0, int count = 10)
+        public static IEnumerable<SaleOrderDto> CreateOrders(int start = 0, int count = 10)
                                                                   => OnCreateOrders(start, count);
 
-        private static IEnumerable<OrderDto> OnCreateOrders(int start, int count)
+        private static IEnumerable<SaleOrderDto> OnCreateOrders(int start, int count)
         {
-            var allOrders = new List<OrderDto>();
+            var allOrders = new List<SaleOrderDto>();
             for (int i = start; i < start + count; i++)
             {
-                var newOrderDto = new OrderDto()
+                var newOrderDto = new SaleOrderDto()
                 {
                     OrderNumber = _orderIds[i],
-                    Status = (OrderState)Enum.Parse(typeof(OrderState), OrderStates[_random.Next(0, 2)]),
+                    Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), OrderStatus[_random.Next(0, 2)]),
                     CreatedOnUtc = DateTime.UtcNow,
                     CustomerId = Customers[_random.Next(0, 4)],
-                    //  ThreadId = Thread.CurrentThread.ManagedThreadId,
-                    OrderLineItems = new List<OrderLineItemDto>()
+                    OrderLineItems = new List<SaleOrderLineItemDto>()
                     {
-                        new OrderLineItemDto() { ProductId= $"{ProductePrix[_random.Next(0, 4)]} Widget {_productIds[_random.Next(0,_productIds.Count - 1)]}", Quantity=54*_random.Next(1,10),TaxRate=TaxRate,  UnitPriceExcludeTax=10 *_random.Next(10,500)/100},
-                        new OrderLineItemDto() { ProductId= $"{ProductePrix[_random.Next(0, 4)]} Widget {_productIds[_random.Next(0,_productIds.Count - 1)]}", Quantity=90*_random.Next(1,100),TaxRate=TaxRate,UnitPriceExcludeTax= 20 *_random.Next(100,2000)/100 }
-                    }.ToArray()
+                        new SaleOrderLineItemDto() { ProductId= $"{ProductePrix[_random.Next(0, 4)]} Widget {_productIds[_random.Next(0,_productIds.Count - 1)]}", Quantity=54*_random.Next(1,10),TaxRate=TaxRate,  UnitPriceExcludeTax=10 *_random.Next(10,500)/100},
+                        new SaleOrderLineItemDto() { ProductId= $"{ProductePrix[_random.Next(0, 4)]} Widget {_productIds[_random.Next(0,_productIds.Count - 1)]}", Quantity=90*_random.Next(1,100),TaxRate=TaxRate,UnitPriceExcludeTax= 20 *_random.Next(100,2000)/100 }
+                    }.ToArray(),
+                    BillingAddressCity = $"{Cities[_random.Next(0, 4)]}",
+                    BillingAddressStreet = $"{_random.Next(1, 100)} Wall Street",
+                    ShippingAddressCity = $"{Cities[_random.Next(0, 4)]}",
+                    ShippingAddressStreet = $"{_random.Next(1, 500)} B Baker St",
                 };
 
                 allOrders.Add(newOrderDto);

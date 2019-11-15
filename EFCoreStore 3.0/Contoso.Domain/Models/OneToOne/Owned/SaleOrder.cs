@@ -48,7 +48,7 @@ namespace Contoso.Domain.Models
         //public StreetAddress ShippingAddress { get; set; }
 
         //Nested owned types
-        public SaleOrderDetail OrderDetail { get; set; }
+        public SaleOrderAddress Addresses { get; set; }
 
         public ICollection<SaleOrderItem> OrderItems { get; set; }
         #endregion

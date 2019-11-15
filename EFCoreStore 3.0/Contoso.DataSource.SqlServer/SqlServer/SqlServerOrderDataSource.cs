@@ -40,8 +40,36 @@ namespace Contoso.DataSource.SqlServer
         }
         #endregion
 
-        #region Read Methods
-        public async Task<IPagedList<OrderDto>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        #region TableSharing Order
+        public async ValueTask<IEnumerable<OrderDto>> InsertOrdersAsync(IEnumerable<OrderDto> orderDtos)
+        {
+            try
+            {
+                var orderModels = _mapper.Map<IEnumerable<Order>>(orderDtos);
+                var newOrderModels = await _sqlOrderRepository.InsertOrdersAsync(orderModels);
+                var newOrderDtos = _mapper.Map<IEnumerable<OrderDto>>(newOrderModels);
+                return newOrderDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{nameof(GetPagedOrdersAsync)} Error: {ex.Message}");
+
+                throw ex;
+            }
+        }
+
+        public async IAsyncEnumerable<OrderDto> GetPagedOrderListAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            var pagedOrders = await _sqlOrderRepository.GetPagedOrdersAsync(pageIndex, pageSize);
+            var pagedOrderDtos = await _mapper.Map<IEnumerable<OrderDto>>(pagedOrders.AsEnumerable()).AddPagedAsync(pageIndex, pageSize);
+
+            foreach (var orderDto in pagedOrderDtos)
+            {
+                yield return orderDto;
+            }
+        }
+
+        public async ValueTask<IPagedList<OrderDto>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue)
         {
             try
             {
@@ -58,8 +86,34 @@ namespace Contoso.DataSource.SqlServer
         }
         #endregion
 
-        #region Add Method
-     
+        #region Owned
+        public async ValueTask<IEnumerable<SaleOrderDto>> InsertSaleOrdersAsync(IEnumerable<SaleOrderDto> saleOrderDtos)
+        {
+            try
+            {
+                var saleOrderModels = _mapper.Map<IEnumerable<SaleOrder>>(saleOrderDtos);
+                var newSaleOrderModels = await _sqlOrderRepository.InsertSaleOrdersAsync(saleOrderModels);
+                var newSaleOrderDtos = _mapper.Map<IEnumerable<SaleOrderDto>>(newSaleOrderModels);
+                return newSaleOrderDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{nameof(InsertSaleOrdersAsync)} Error: {ex.Message}");
+
+                throw ex;
+            }
+        }
+
+        public async IAsyncEnumerable<SaleOrderDto> GetPagedSaleOrderListAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            var pagedSaleOrders = await _sqlOrderRepository.GetPagedSaleOrdersAsync(pageIndex, pageSize);
+            var pagedSaleOrderDtos = await _mapper.Map<IEnumerable<SaleOrderDto>>(pagedSaleOrders.AsEnumerable()).AddPagedAsync(pageIndex, pageSize);
+
+            foreach (var orderDto in pagedSaleOrderDtos)
+            {
+                yield return orderDto;
+            }
+        }
         #endregion
     }
 }

@@ -36,7 +36,7 @@ namespace Contoso.Domain.Models
                    .IsRequired();
 
             //builder.Property(a => a.SpatialLocation)
-            //       .HasColumnType("geometry");
+            //       .HasColumnType("geography");
 
         }
     }

@@ -11,11 +11,19 @@ namespace Contoso.Domain.Repository
 {
     public interface IOrderRepository
     {
+        #region TableSharing Order
+        ValueTask<IEnumerable<Order>> InsertOrdersAsync(IEnumerable<Order> orders);
+
+        ValueTask<IPagedList<Order>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+        #endregion
+
         #region Owned
         ValueTask<IEnumerable<SaleOrder>> InsertSaleOrdersAsync(IEnumerable<SaleOrder> saleOrders);
 
         ValueTask<IPagedList<SaleOrder>> GetPagedSaleOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+        #endregion
 
+        #region Multiple Owned
         ValueTask<IEnumerable<Distributor>> InsertDistributorsAsync(IEnumerable<Distributor> distributors);
 
         ValueTask<IPagedList<Distributor>> GetPagedDistributorsAsync(int pageIndex = 0, int pageSize = int.MaxValue);
@@ -33,10 +41,5 @@ namespace Contoso.Domain.Repository
         ValueTask<IPagedList<Employee>> GetPagedEmployeesAsync(int pageIndex = 0, int pageSize = int.MaxValue);
         #endregion
 
-        #region Order 1 to ..
-        ValueTask<IEnumerable<Order>> InsertOrdersAsync(IEnumerable<Order> orders);
-
-        ValueTask<IPagedList<Order>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
-        #endregion
     }
 }

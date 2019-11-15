@@ -42,6 +42,7 @@ namespace Contoso.Infrastructure.Data.Repository
         }
         #endregion
 
+        #region TableSharing Order
         public async ValueTask<IPagedList<Order>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue)
         {
             var pagedOrders = await _contosoContext.Orders.Include(oi => oi.DetailedOrder)
@@ -55,5 +56,63 @@ namespace Contoso.Infrastructure.Data.Repository
             var newOrders = await this.InsertAsync(orders);
             return newOrders;
         }
+        #endregion
+
+        #region Owned
+        public async ValueTask<IEnumerable<SaleOrder>> InsertSaleOrdersAsync(IEnumerable<SaleOrder> saleOrders)
+        {
+            await _contosoContext.SaleOrders.AddRangeAsync(saleOrders);
+            await _contosoContext.SaveChangesAsync();
+            return saleOrders;
+        }
+
+        public async ValueTask<IPagedList<SaleOrder>> GetPagedSaleOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            //var pagedSaleOrders = await _contosoContext.SaleOrders.Includes(so=> so.OrderItems, so => so.Addresses)
+            //                                                      .AddPagedAsync(pageIndex, pageSize);
+
+            var pagedSaleOrders = await _contosoContext.SaleOrders.Include(so => so.OrderItems)
+                                                                  .AddPagedAsync(pageIndex, pageSize);
+
+            return pagedSaleOrders;
+        }
+        #endregion
+
+        #region Multiple Owned
+        public ValueTask<IEnumerable<Distributor>> InsertDistributorsAsync(IEnumerable<Distributor> distributors)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<IPagedList<Distributor>> GetPagedDistributorsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region 1  to  0..1
+        public ValueTask<IEnumerable<Instructor>> InsertInstructorsAsync(IEnumerable<Instructor> instructors)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<IPagedList<Instructor>> GetPagedInstructorsAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region TPH
+        public ValueTask<IEnumerable<Employee>> InsertEmployeesAsync(IEnumerable<Employee> employees)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ValueTask<IPagedList<Employee>> GetPagedEmployeesAsync(int pageIndex = 0, int pageSize = int.MaxValue)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+ 
     }
 }

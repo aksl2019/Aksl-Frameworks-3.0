@@ -113,29 +113,30 @@ namespace Contoso.ConsoleApp
                 });
 
                 //DbContext
-                Services.AddScoped<ContosoContext, SqliteContosoContext>((sp) =>
+                Services.AddTransient<ContosoContext, SqliteContosoContext>((sp) =>
                 {
                     var logFactory = sp.GetRequiredService<ILoggerFactory>();
                     string sqliteConnectionString = this.Configuration.GetConnectionString("ContosoSqlite");
                     //var sqliteContosoContext = new SqliteContosoContext(new DbContextOptionsBuilder<ContosoContext>().UseLoggerFactory(logFactory)
                     //                                                                                                 .UseSqlite(sqliteConnectionString).Options);
                     var sqliteContosoContext = new SqliteContosoContext(new DbContextOptionsBuilder<ContosoContext>()
-                                                                                              .UseSqlite(sqliteConnectionString).Options);
+                                                                                              .UseSqlite(sqliteConnectionString, sqliteDbContextOptionsBuilder => sqliteDbContextOptionsBuilder.UseNetTopologySuite()).Options);
                     return sqliteContosoContext;
                 });
 
-                Services.AddScoped<ContosoContext, SqlServerContosoContext>((sp) =>
+                Services.AddTransient<ContosoContext, SqlServerContosoContext>((sp) =>
                 {
                     var logFactory = sp.GetRequiredService<ILoggerFactory>();
                     string sqlServerConnectString = this.Configuration.GetConnectionString("ContosoSqlServer");
                     //var sqlServerContosoContext = new SqlServerContosoContext(new DbContextOptionsBuilder<ContosoContext>().UseLoggerFactory(logFactory)
                     //                                                                                                       .UseSqlServer(sqlServerConnectString).Options);
                     var sqlServerContosoContext = new SqlServerContosoContext(new DbContextOptionsBuilder<ContosoContext>()
-                                                                                                                      .UseSqlServer(sqlServerConnectString).Options);
+                                                                                           .UseSqlServer(sqlServerConnectString,sqlServerDbContextOptionsBuilder => sqlServerDbContextOptionsBuilder.UseNetTopologySuite()).Options);
                     return sqlServerContosoContext;
                 });
 
-                Services.AddScoped<IDbContextFactory<ContosoContext>, DbContextFactory>();
+                //Services.AddScoped<IDbContextFactory<ContosoContext>, DbContextFactory>();
+                Services.AddTransient<IDbContextFactory<ContosoContext>, DbContextFactory>();
 
                 //Services.AddScoped(typeof(IDataflowBulkInserter<,>), typeof(DataflowBulkInserter<,>));
                 //Services.AddScoped(typeof(IDataflowPipeBulkInserter<,>), typeof(DataflowPipeBulkInserter<,>));
@@ -145,17 +146,21 @@ namespace Contoso.ConsoleApp
                 // Services.AddScoped<IPipeBulkInserter<Order, Order>, PipeBulkInserter<Order, Order>>();
 
                 //Repository
-                Services.AddScoped<ISqlOrderRepository, SqlOrderRepository>();
+               // Services.AddScoped<ISqlOrderRepository, SqlOrderRepository>();
+                Services.AddTransient<ISqlOrderRepository, SqlOrderRepository>();
 
                 //Mapper
                 Services.AddAutoMapper(typeof(Contoso.DataSource.AutoMapper.AutoMapperProfileConfiguration));
 
                 //DataSource
-                Services.AddScoped<ISqlServerOrderDataSource, DataSource.SqlServer.SqlServerOrderDataSource>();
+               // Services.AddScoped<ISqlServerOrderDataSource, DataSource.SqlServer.SqlServerOrderDataSource>();
+                Services.AddTransient<ISqlServerOrderDataSource, DataSource.SqlServer.SqlServerOrderDataSource>();
 
                 //DataSourceFactory
-                Services.AddScoped<IContosoDataSource, SqlServerContosoDataSource>();
-                Services.AddScoped<IDataSourceFactory<IContosoDataSource>, ContosoDataSourceFactory>();
+                //Services.AddScoped<IContosoDataSource, SqlServerContosoDataSource>();
+                //Services.AddScoped<IDataSourceFactory<IContosoDataSource>, ContosoDataSourceFactory>();
+                Services.AddTransient<IContosoDataSource, SqlServerContosoDataSource>();
+                Services.AddTransient<IDataSourceFactory<IContosoDataSource>, ContosoDataSourceFactory>();
 
                 // Services.AddSingleton<IPipeWebApiSender<PurchaseOrderDto, int>, PipeWebApiSender<PurchaseOrderDto, int>>();
 
@@ -166,8 +171,10 @@ namespace Contoso.ConsoleApp
                 _loggerFactory = ServiceProvider.GetRequiredService<ILoggerFactory>();
                 _logger = _loggerFactory.CreateLogger<WebApiSender>();
 
-                var repositoryFactory = this.ServiceProvider.GetRequiredService<IDbContextFactory<ContosoContext>>();
-                var dbContext = repositoryFactory.CreateDbContext();
+                var dbContextFactory = this.ServiceProvider.GetRequiredService<IDbContextFactory<ContosoContext>>();
+                var dbContext = dbContextFactory.CreateDbContext();
+
+                var dbContextFactory2 = this.ServiceProvider.GetRequiredService<IDbContextFactory<ContosoContext>>();
 
                 //var dataflowBulkInserter = this.ServiceProvider.GetRequiredService<IDataflowBulkInserter<OrderDto, OrderDto>>();
                 //var dataflowPipeBulkInserter = this.ServiceProvider.GetRequiredService<IDataflowPipeBulkInserter<OrderDto, OrderDto>>();
@@ -177,6 +184,8 @@ namespace Contoso.ConsoleApp
 
                 var contosoDataSourceFactory = this.ServiceProvider.GetRequiredService<IDataSourceFactory<IContosoDataSource>>();
                 var orderDataSource = contosoDataSourceFactory.Current.OrderDataSource;
+
+                var contosoDataSourceFactory2 = this.ServiceProvider.GetRequiredService<IDataSourceFactory<IContosoDataSource>>();
 
                 _cancellationTokenSource = new CancellationTokenSource();
                 _durationManage = new DurationManage();

@@ -40,7 +40,6 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Folder Include="DataflowPipe\" />
     <Folder Include="Pipe\" />
   </ItemGroup>
 

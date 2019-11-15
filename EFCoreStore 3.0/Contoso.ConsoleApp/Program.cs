@@ -9,8 +9,16 @@ namespace Contoso.ConsoleApp
         {
             await WebApiSender.Instance.InitializeTask();
 
-            #region Dataflow Retry
-      
+            #region TableSplitting
+            // await WebApiSender.Instance.InsertOrdersAsync();
+
+            // await WebApiSender.Instance.GetPagedOrdersAsync();
+            #endregion
+
+            #region Owned
+             await WebApiSender.Instance.InsertSaleOrderLoopTasksAsync(taskCount:10, count: 5, orderCount: 2);
+
+            //await WebApiSender.Instance.GetPagedSaleOrdersAsync();
             #endregion
 
             //  Console.WriteLine("Hello World!");

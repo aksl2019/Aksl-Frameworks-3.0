@@ -180,6 +180,19 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Sqlite.NetTopologySuite/3.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "3.0.0",
+          "NetTopologySuite.IO.SpatiaLite": "2.0.0",
+          "mod_spatialite": "4.3.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Sqlite.NetTopologySuite.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46310"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.SqlServer/3.0.0": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "1.0.19249.1",
@@ -187,6 +200,18 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.0.19.46310"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/3.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
+          "NetTopologySuite.IO.SqlServerBytes": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll": {
             "assemblyVersion": "3.0.0.0",
             "fileVersion": "3.0.19.46310"
           }
@@ -453,19 +478,168 @@
           "System.Security.Principal.Windows": "4.5.0"
         }
       },
+      "mod_spatialite/4.3.0.1": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/libfreexl-1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libgcc_s_seh-1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libgeos.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libgeos_c.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libiconv-2.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.15.0.0"
+          },
+          "runtimes/win-x64/native/liblzma-5.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "5.2.4.0"
+          },
+          "runtimes/win-x64/native/libproj-13.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libstdc++-6.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libwinpthread-1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.0.0.0"
+          },
+          "runtimes/win-x64/native/libxml2-2.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/mod_spatialite.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/zlib1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libfreexl-1.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libgcc_s_dw2-1.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libgeos.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libgeos_c.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libiconv-2.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.15.0.0"
+          },
+          "runtimes/win-x86/native/liblzma-5.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "5.2.4.0"
+          },
+          "runtimes/win-x86/native/libproj-13.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libstdc++-6.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libwinpthread-1.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.0.0.0"
+          },
+          "runtimes/win-x86/native/libxml2-2.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/mod_spatialite.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/zlib1.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "NetTopologySuite/2.0.0": {
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "NetTopologySuite.IO.SpatiaLite/2.0.0": {
+        "dependencies": {
+          "NetTopologySuite": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SpatiaLite.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "NetTopologySuite.IO.SqlServerBytes/2.0.0": {
+        "dependencies": {
+          "NetTopologySuite": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.IO.SqlServerBytes.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/12.0.2": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.2.23222"
-          }
-        }
-      },
-      "Polly/7.1.0": {
-        "runtime": {
-          "lib/netstandard2.0/Polly.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.1.0.0"
           }
         }
       },
@@ -612,7 +786,6 @@
           }
         }
       },
-      "System.Buffers/4.5.0": {},
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -763,14 +936,6 @@
       "System.IO.FileSystem.Primitives/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
-        }
-      },
-      "System.IO.Pipelines/4.5.3": {
-        "runtime": {
-          "lib/netcoreapp2.1/System.IO.Pipelines.dll": {
-            "assemblyVersion": "4.0.0.1",
-            "fileVersion": "4.6.27129.4"
-          }
         }
       },
       "System.Linq/4.3.0": {
@@ -1074,7 +1239,6 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Threading.Channels/4.5.0": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
@@ -1155,16 +1319,6 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
-      "Aksl.BulkInsert/1.0.0": {
-        "dependencies": {
-          "Aksl.Concurrency": "1.0.0",
-          "Aksl.Pipeline": "1.0.0",
-          "System.Text.Json": "4.6.0"
-        },
-        "runtime": {
-          "Aksl.BulkInsert.dll": {}
-        }
-      },
       "Aksl.Concurrency/1.0.0": {
         "runtime": {
           "Aksl.Concurrency.dll": {}
@@ -1182,32 +1336,6 @@
         },
         "runtime": {
           "Aksl.Data.dll": {}
-        }
-      },
-      "Aksl.Pipeline/1.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "3.0.0",
-          "Microsoft.Extensions.Configuration.Abstractions": "3.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "3.0.0",
-          "Microsoft.Extensions.Logging": "3.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "3.0.0",
-          "Microsoft.Extensions.Logging.Configuration": "3.0.0",
-          "Microsoft.Extensions.Logging.Console": "3.0.0",
-          "Microsoft.Extensions.Logging.Debug": "3.0.0",
-          "Microsoft.Extensions.Options": "3.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.0.0",
-          "Polly": "7.1.0",
-          "System.Buffers": "4.5.0",
-          "System.IO.Pipelines": "4.5.3",
-          "System.Memory": "4.5.3",
-          "System.Text.Json": "4.6.0",
-          "System.Threading.Channels": "4.5.0",
-          "System.Threading.Tasks.Dataflow": "4.10.0",
-          "System.Threading.Tasks.Extensions": "4.5.3",
-          "System.ValueTuple": "4.5.0"
-        },
-        "runtime": {
-          "Aksl.Pipeline.dll": {}
         }
       },
       "Contoso.DataSource/1.0.0": {
@@ -1233,7 +1361,10 @@
       },
       "Contoso.Domain/1.0.0": {
         "dependencies": {
-          "Aksl.Data": "1.0.0"
+          "Aksl.Data": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": "3.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite.NetTopologySuite": "3.0.0",
+          "NetTopologySuite": "2.0.0"
         },
         "runtime": {
           "Contoso.Domain.dll": {}
@@ -1241,7 +1372,6 @@
       },
       "Contoso.Infrastructure.Data/1.0.0": {
         "dependencies": {
-          "Aksl.BulkInsert": "1.0.0",
           "Aksl.Data": "1.0.0",
           "Contoso.Domain": "1.0.0"
         },
@@ -1348,12 +1478,26 @@
       "path": "microsoft.entityframeworkcore.sqlite.core/3.0.0",
       "hashPath": "microsoft.entityframeworkcore.sqlite.core.3.0.0.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Sqlite.NetTopologySuite/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-64q375Vnkmyj25JB58wq+me105FIK/Rmx2abckJPwLoTIo91Lpc8F/gE1gk/3RUyQ0n5UzNEjhbB6JNLJdICbA==",
+      "path": "microsoft.entityframeworkcore.sqlite.nettopologysuite/3.0.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.nettopologysuite.3.0.0.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.SqlServer/3.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-Qe1PzL0fVfEildvCQjWx0gXDFfD5e5LT9/Cwg0N86/6eX44FhUowdfI2FMElVdHjU80l67KhDfVmBYCEiPJ/Pw==",
       "path": "microsoft.entityframeworkcore.sqlserver/3.0.0",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ihkrmKyvdHEKLHL74ZLQb66xS7FvD/Nr986JlOdR1kcv/Nsj6JLJST0QbgWoJChEShjXXA+Z3i5/kFLnpth3xA==",
+      "path": "microsoft.entityframeworkcore.sqlserver.nettopologysuite/3.0.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.nettopologysuite.3.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.0.0": {
       "type": "package",
@@ -1530,19 +1674,40 @@
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
     },
+    "mod_spatialite/4.3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jdRRlDd05vvxmJntsFJ1QKjQallH5sW76HB9iyKDFUAkeipe13pi8wWR1lGEJvwTPsEeWgMpRrCj5VTzjQhsYg==",
+      "path": "mod_spatialite/4.3.0.1",
+      "hashPath": "mod_spatialite.4.3.0.1.nupkg.sha512"
+    },
+    "NetTopologySuite/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3ajBClEI9wx2/DjjGmV52sHW1m52vLg8sdz1pJbTf5ySj1X90qehQs3v1DRwGo0F8UKj/Z2SjNhRN/6LroAkqg==",
+      "path": "nettopologysuite/2.0.0",
+      "hashPath": "nettopologysuite.2.0.0.nupkg.sha512"
+    },
+    "NetTopologySuite.IO.SpatiaLite/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nT8ep51zgrTPEtRG+Cxeoi585uFlzmCmJz+xl35ima1xWCk4KuRuLtCEswy8RQkApmeaawAAfsTsa83sgmT4xw==",
+      "path": "nettopologysuite.io.spatialite/2.0.0",
+      "hashPath": "nettopologysuite.io.spatialite.2.0.0.nupkg.sha512"
+    },
+    "NetTopologySuite.IO.SqlServerBytes/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TuyMB0VSlRJx86UrWeQ+SGgOMudvhIL1qJJdWJw78nWsXIzKRP4ooQAhhhCCH7n8q1lvd0/NW3ByaLlHxxNSPQ==",
+      "path": "nettopologysuite.io.sqlserverbytes/2.0.0",
+      "hashPath": "nettopologysuite.io.sqlserverbytes.2.0.0.nupkg.sha512"
+    },
     "Newtonsoft.Json/12.0.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "path": "newtonsoft.json/12.0.2",
       "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
-    },
-    "Polly/7.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NeiMizU89Ga9BSnYDHduzPNxd0JvmLqEPgPtsJHXVg6kvAUpif08rUZtWq9q+6vrbEPdofC7nKr0HTbA+sU4DA==",
-      "path": "polly/7.1.0",
-      "hashPath": "polly.7.1.0.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
@@ -1606,13 +1771,6 @@
       "sha512": "sha512-4Z/Dtk/qqW/UTwmfAcfrzUUEkT7lf5lnAbKCUFLB6pPl0gL6p8CTj7/2zfw2LuT8Gjpd9XCus4LnrAj1p2J3Bw==",
       "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.0",
       "hashPath": "sqlitepclraw.provider.dynamic_cdecl.2.0.0.nupkg.sha512"
-    },
-    "System.Buffers/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
-      "path": "system.buffers/4.5.0",
-      "hashPath": "system.buffers.4.5.0.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -1746,13 +1904,6 @@
       "sha512": "sha512-6QOb2XFLch7bEc4lIcJH49nJN2HV+OC3fHDgsLVsBVBk3Y4hFAnOBGzJ2lUu7CyDDFo9IBWkSsnbkT6IBwwiMw==",
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
-    },
-    "System.IO.Pipelines/4.5.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-e1yNVZx3fL/GSa0+HBGfseZeO9/sVVfiYc9I2YrqOYRaQdvh22BnBm0Y6yo/cnnVuOyzwJJCj8Tid6Vmj03qlg==",
-      "path": "system.io.pipelines/4.5.3",
-      "hashPath": "system.io.pipelines.4.5.3.nupkg.sha512"
     },
     "System.Linq/4.3.0": {
       "type": "package",
@@ -1992,13 +2143,6 @@
       "path": "system.threading/4.3.0",
       "hashPath": "system.threading.4.3.0.nupkg.sha512"
     },
-    "System.Threading.Channels/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-MEH06N0rIGmRT4LOKQ2BmUO0IxfvmIY/PaouSq+DFQku72OL8cxfw8W99uGpTCFf2vx2QHLRSh374iSM3asdTA==",
-      "path": "system.threading.channels/4.5.0",
-      "hashPath": "system.threading.channels.4.5.0.nupkg.sha512"
-    },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2055,22 +2199,12 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
-    "Aksl.BulkInsert/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Aksl.Concurrency/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Aksl.Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Aksl.Pipeline/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

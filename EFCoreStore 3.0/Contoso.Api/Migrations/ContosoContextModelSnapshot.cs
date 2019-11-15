@@ -324,26 +324,29 @@ namespace Contoso.Api.Migrations
 
             modelBuilder.Entity("Contoso.Domain.Models.SaleOrder", b =>
                 {
-                    b.OwnsOne("Contoso.Domain.Models.SaleOrderDetail", "OrderDetail", b1 =>
+                    b.OwnsOne("Contoso.Domain.Models.SaleOrderAddress", "Addresses", b1 =>
                         {
-                            b1.Property<int>("SaleOrderId")
+                            b1.Property<int>("Id")
                                 .ValueGeneratedOnAdd()
                                 .HasColumnType("int")
                                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                            b1.Property<int?>("Status")
+                            b1.Property<int>("OwnerId")
                                 .HasColumnType("int");
 
-                            b1.HasKey("SaleOrderId");
+                            b1.HasKey("Id");
 
-                            b1.ToTable("SaleOrderDetail");
+                            b1.HasIndex("OwnerId")
+                                .IsUnique();
+
+                            b1.ToTable("SaleOrderAddresses");
 
                             b1.WithOwner()
-                                .HasForeignKey("SaleOrderId");
+                                .HasForeignKey("OwnerId");
 
                             b1.OwnsOne("Contoso.Domain.Models.StreetAddress", "BillingAddress", b2 =>
                                 {
-                                    b2.Property<int>("SaleOrderDetailSaleOrderId")
+                                    b2.Property<int>("Id")
                                         .ValueGeneratedOnAdd()
                                         .HasColumnType("int")
                                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -351,20 +354,26 @@ namespace Contoso.Api.Migrations
                                     b2.Property<string>("City")
                                         .HasColumnType("nvarchar(max)");
 
+                                    b2.Property<int>("OwnerId")
+                                        .HasColumnType("int");
+
                                     b2.Property<string>("Street")
                                         .HasColumnType("nvarchar(max)");
 
-                                    b2.HasKey("SaleOrderDetailSaleOrderId");
+                                    b2.HasKey("Id");
+
+                                    b2.HasIndex("OwnerId")
+                                        .IsUnique();
 
                                     b2.ToTable("SaleOrderBillingAddress");
 
                                     b2.WithOwner()
-                                        .HasForeignKey("SaleOrderDetailSaleOrderId");
+                                        .HasForeignKey("OwnerId");
                                 });
 
                             b1.OwnsOne("Contoso.Domain.Models.StreetAddress", "ShippingAddress", b2 =>
                                 {
-                                    b2.Property<int>("SaleOrderDetailSaleOrderId")
+                                    b2.Property<int>("Id")
                                         .ValueGeneratedOnAdd()
                                         .HasColumnType("int")
                                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -372,15 +381,21 @@ namespace Contoso.Api.Migrations
                                     b2.Property<string>("City")
                                         .HasColumnType("nvarchar(max)");
 
+                                    b2.Property<int>("OwnerId")
+                                        .HasColumnType("int");
+
                                     b2.Property<string>("Street")
                                         .HasColumnType("nvarchar(max)");
 
-                                    b2.HasKey("SaleOrderDetailSaleOrderId");
+                                    b2.HasKey("Id");
+
+                                    b2.HasIndex("OwnerId")
+                                        .IsUnique();
 
                                     b2.ToTable("SaleOrderShippingAddress");
 
                                     b2.WithOwner()
-                                        .HasForeignKey("SaleOrderDetailSaleOrderId");
+                                        .HasForeignKey("OwnerId");
                                 });
                         });
                 });

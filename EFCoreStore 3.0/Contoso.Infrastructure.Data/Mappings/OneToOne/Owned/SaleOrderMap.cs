@@ -67,22 +67,31 @@ namespace Contoso.Infrastructure.Data.Mappings
             //                   onb.OwnsOne(sod => sod.ShippingAddress);
             //               });
 
-            builder.OwnsOne(so => so.OrderDetail,
-                          onb =>
+            builder.OwnsOne(so => so.Addresses,
+                          onb1 =>
                           {
-                              onb.ToTable("SaleOrderDetail");
+                              onb1.ToTable("SaleOrderAddresses");
+                              onb1.WithOwner().HasForeignKey("OwnerId");//外键;
+                              onb1.Property<int>("Id");
+                              onb1.HasKey("Id");//主键
                               // onb.OwnsOne(sod => sod.BillingAddress);
-                              onb.OwnsOne(sod => sod.BillingAddress,
-                              onbb =>
+                              onb1.OwnsOne(sod => sod.BillingAddress,
+                              onb2 =>
                               {
-                                  onbb.ToTable("SaleOrderBillingAddress");
+                                  onb2.ToTable("SaleOrderBillingAddress");
+                                  onb2.WithOwner().HasForeignKey("OwnerId");//外键;
+                                  onb2.Property<int>("Id");
+                                  onb2.HasKey("Id");//主键
                               });
-                           //   onb.OwnsOne(sod => sod.ShippingAddress);
-                              onb.OwnsOne(sod => sod.ShippingAddress,
-                                 onbb =>
-                                 {
-                                     onbb.ToTable("SaleOrderShippingAddress");
-                                 });
+                              //   onb.OwnsOne(sod => sod.ShippingAddress);
+                              onb1.OwnsOne(sod => sod.ShippingAddress,
+                              onb3 =>
+                              {
+                                  onb3.ToTable("SaleOrderShippingAddress");
+                                  onb3.WithOwner().HasForeignKey("OwnerId");//外键;
+                                  onb3.Property<int>("Id");
+                                  onb3.HasKey("Id");//主键
+                              });
                           });
         }
     }

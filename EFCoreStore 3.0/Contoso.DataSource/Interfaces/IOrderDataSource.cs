@@ -11,8 +11,19 @@ namespace Contoso.DataSource
 {
     public interface IOrderDataSource
     {
-      
 
-        Task<IPagedList<OrderDto>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+        #region TableSharing Order
+        ValueTask<IEnumerable<OrderDto>> InsertOrdersAsync(IEnumerable<OrderDto> orderDtos);
+
+        IAsyncEnumerable<OrderDto> GetPagedOrderListAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+
+      //  ValueTask<IPagedList<OrderDto>> GetPagedOrdersAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+        #endregion
+
+        #region Owned
+        ValueTask<IEnumerable<SaleOrderDto>> InsertSaleOrdersAsync(IEnumerable<SaleOrderDto> saleOrderDtos);
+
+        IAsyncEnumerable<SaleOrderDto> GetPagedSaleOrderListAsync(int pageIndex = 0, int pageSize = int.MaxValue);
+        #endregion
     }
 }
