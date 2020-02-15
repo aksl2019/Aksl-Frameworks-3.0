@@ -11,8 +11,8 @@ using NetTopologySuite.Geometries;
 namespace Contoso.Api.Migrations
 {
     [DbContext(typeof(ContosoContext))]
-    [Migration("20191104104204_init")]
-    partial class init
+    [Migration("20191217113948_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -101,6 +101,11 @@ namespace Contoso.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 

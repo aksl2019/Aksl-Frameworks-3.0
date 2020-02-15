@@ -7,6 +7,12 @@ using Contoso.Infrastructure.Data.Mappings;
 //Remove-Migration   -Contex  ContosoContext
 //Update-Database init  -Contex  ContosoContext
 
+//Drop-Database
+
+//Add-Migration Initial -Contex  ContosoContext
+//Remove-Migration   -Contex  ContosoContext
+//Update-Database Initial  -Contex  ContosoContext
+
 namespace Contoso.Infrastructure.Data.Context
 {
     public class ContosoContext : DbContext

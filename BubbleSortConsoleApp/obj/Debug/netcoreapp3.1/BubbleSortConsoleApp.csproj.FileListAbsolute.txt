@@ -1,0 +1,11 @@
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\obj\Debug\netcoreapp3.1\BubbleSortConsoleApp.csprojAssemblyReference.cache
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\obj\Debug\netcoreapp3.1\BubbleSortConsoleApp.AssemblyInfoInputs.cache
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\obj\Debug\netcoreapp3.1\BubbleSortConsoleApp.AssemblyInfo.cs
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\bin\Debug\netcoreapp3.1\BubbleSortConsoleApp.exe
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\bin\Debug\netcoreapp3.1\BubbleSortConsoleApp.deps.json
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\bin\Debug\netcoreapp3.1\BubbleSortConsoleApp.runtimeconfig.json
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\bin\Debug\netcoreapp3.1\BubbleSortConsoleApp.runtimeconfig.dev.json
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\bin\Debug\netcoreapp3.1\BubbleSortConsoleApp.dll
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\bin\Debug\netcoreapp3.1\BubbleSortConsoleApp.pdb
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\obj\Debug\netcoreapp3.1\BubbleSortConsoleApp.dll
+C:\Aksl Frameworks 3.0\BubbleSortConsoleApp\obj\Debug\netcoreapp3.1\BubbleSortConsoleApp.pdb
